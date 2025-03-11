@@ -6,7 +6,8 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Next.js Meme Generator</h1>
+        <h1 className={styles.title}>MemeForge</h1>
+        <h2>create your own dank meme</h2>
         <MemeGenerator />
       </div>
     </main>
