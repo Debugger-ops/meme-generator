@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     max-width: 1024px;
-    background-color: rgb(16, 16, 16);
+    background-color: rgb(31, 31, 31);
     border-radius: 0.5rem;
     color: white;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
