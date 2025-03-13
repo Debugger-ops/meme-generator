@@ -20,11 +20,13 @@ memeforge/
 │   ├── globals.css        # Global CSS styles
 │   └── page.module.css    # Page-specific styles
 ├── components/
+|   ├── AdvancedControls.tsx # Consists of Enhanced advance controls
 │   ├── MemeGenerator.tsx  # Main component that coordinates the meme creation
 │   ├── MemeCanvas.tsx     # Canvas where the meme is displayed and edited
 │   ├── TextControls.tsx   # Controls for adding/editing text on memes
 │   ├── ImageUploader.tsx  # Component for uploading and selecting images
 │   └── styles/
+        ├── AdvancedControls.module.css
 │       ├── MemeGenerator.module.css
 │       ├── MemeCanvas.module.css
 │       ├── TextControls.module.css
