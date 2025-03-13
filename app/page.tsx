@@ -7,7 +7,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.container}>
         <h1 className={styles.title}>MemeForge</h1>
-        <h2>create your own dank meme</h2>
+        <h2 classname={styles.second}>create your own dank meme</h2>
         <MemeGenerator />
       </div>
     </main>
