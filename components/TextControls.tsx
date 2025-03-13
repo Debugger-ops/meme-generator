@@ -20,7 +20,6 @@ export default function TextControls({ memeState, updateMemeState }: TextControl
         <input
           type="text"
           placeholder="TOP TEXT"
-          value={memeState.topText}
           onChange={(e) => updateMemeState({ topText: e.target.value })}
           className={styles.textInput}
         />
@@ -33,7 +32,6 @@ export default function TextControls({ memeState, updateMemeState }: TextControl
         <input
           type="text"
           placeholder="BOTTOM TEXT"
-          value={memeState.bottomText}
           onChange={(e) => updateMemeState({ bottomText: e.target.value })}
           className={styles.textInput}
         />
