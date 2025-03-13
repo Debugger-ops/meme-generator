@@ -3,7 +3,8 @@ import { useState } from 'react';
 import MemeCanvas from './MemeCanvas';
 import TextControls from './TextControls';
 import ImageUploader from './ImageUploader';
-import { MemeState, MemeGeneratorState, MemeLayer, CreateLayer, FontFamily } from '../types';
+import AdvancedControls from './AdvancedControls';
+import { MemeState } from '../types';
 import styles from './styles/MemeGenerator.module.css';
 
 export default function MemeGenerator() {
@@ -28,11 +29,36 @@ export default function MemeGenerator() {
     shadowBlur: 5, // New: Shadow blur radius
     shadowOffsetX: 2, // New: Shadow horizontal offset
     shadowOffsetY: 2, // New: Shadow vertical offset
+    crop: {
+      x: 0, // New: Crop X coordinate
+      y: 0, // New: Crop Y coordinate
+      width: 100, // New: Crop width
+      height: 100, // New: Crop height
+    },
+    erase: {
+      x: 0, // New: Erase X coordinate
+      y: 0, // New: Erase Y coordinate
+      radius: 10, // New: Erase radius
+    },
+    filters: {
+      grayscale: 0, // New: Grayscale filter (0 to 100)
+      sepia: 0, // New: Sepia filter (0 to 100)
+      brightness: 100, // New: Brightness filter (0 to 200)
+      contrast: 100, // New: Contrast filter (0 to 200)
+    },
+    history: [], // New: Undo/Redo history
+    currentHistoryIndex: 0, // New: Current position in history
+    flipHorizontal: false, // New: Flip image horizontally
+    flipVertical: false, // New: Flip image vertically
+  
   });
 
   // Function to update meme state
-  const updateMemeState = (newState: Partial<MemeState>): void => {
-    setMemeState((prevState) => ({ ...prevState, ...newState }));
+  const updateMemeState = (newState: Partial<MemeState> | ((prevState: MemeState) => Partial<MemeState>)) => {
+    setMemeState((prevState) => ({
+      ...prevState,
+      ...(typeof newState === "function" ? newState(prevState) : newState),
+    }));
   };
 
   // Function to handle meme download
@@ -69,6 +95,28 @@ export default function MemeGenerator() {
     shadowBlur: 5, // New: Shadow blur radius
     shadowOffsetX: 2, // New: Shadow horizontal offset
     shadowOffsetY: 2, // New: Shadow vertical offset
+    crop: {
+      x: 0, // New: Crop X coordinate
+      y: 0,// New: Crop Y coordinate
+      width: 100, // New: Crop width
+      height: 100, // New: Crop height
+    },
+    erase: {
+      x: 0, // New: Erase X coordinate
+      y: 0, // New: Erase Y coordinate
+      radius: 10, // New: Erase radius
+    },
+    filters: {
+      grayscale: 0, // New: Grayscale filter (0 to 100)
+      sepia: 0, // New: Sepia filter (0 to 100)
+      brightness: 0, // New: Brightness filter (0 to 200)
+      contrast: 0, // New: Contrast filter (0 to 200)
+    },
+    history: [], // New: Undo/Redo history
+    currentHistoryIndex: 0, // New: Current position in history
+    flipHorizontal: false, // New: Flip image horizontally
+    flipVertical: false // New: Flip image vertically
+      
     });
   };
 
@@ -102,7 +150,9 @@ export default function MemeGenerator() {
             >
               Reset Meme
             </button>
+            
           </div>
+          <AdvancedControls memeState={memeState} updateMemeState={updateMemeState} />
         </div>
 
         {/* Right side - Controls */}
@@ -115,6 +165,7 @@ export default function MemeGenerator() {
             memeState={memeState}
             updateMemeState={updateMemeState}
           />
+
         </div>
       </div>
     </div>
