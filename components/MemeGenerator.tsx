@@ -14,6 +14,20 @@ export default function MemeGenerator() {
     textColor: '#ffffff',
     fontSize: 40,
     textStroke: true,
+    fontFamily: 'Arial', // New: Font family
+    textAlign: 'center', // New: Text alignment
+    textOpacity: 1, // New: Text opacity (0 to 1)
+    textRotation: 0, // New: Text rotation in degrees
+    textPadding: 10, // New: Text padding in pixels
+    textBackgroundColor: 'transparent', // New: Background color for text
+    textBorder: false, // New: Toggle for text border
+    borderColor: '#000000', // New: Border color
+    borderThickness: 2, // New: Border thickness in pixels
+    textShadow: false, // New: Toggle for text shadow
+    shadowColor: '#000000', // New: Shadow color
+    shadowBlur: 5, // New: Shadow blur radius
+    shadowOffsetX: 2, // New: Shadow horizontal offset
+    shadowOffsetY: 2, // New: Shadow vertical offset
   });
 
   // Function to update meme state
@@ -36,11 +50,25 @@ export default function MemeGenerator() {
   const handleReset = (): void => {
     setMemeState({
       image: null,
-      topText: 'TOP TEXT',
-      bottomText: 'BOTTOM TEXT',
-      textColor: '#ffffff',
-      fontSize: 40,
-      textStroke: true,
+    topText: 'TOP TEXT',
+    bottomText: 'BOTTOM TEXT',
+    textColor: '#ffffff',
+    fontSize: 40,
+    textStroke: true,
+    fontFamily: 'Arial', // New: Font family
+    textAlign: 'center', // New: Text alignment
+    textOpacity: 1, // New: Text opacity (0 to 1)
+    textRotation: 0, // New: Text rotation in degrees
+    textPadding: 10, // New: Text padding in pixels
+    textBackgroundColor: 'transparent', // New: Background color for text
+    textBorder: false, // New: Toggle for text border
+    borderColor: '#000000', // New: Border color
+    borderThickness: 2, // New: Border thickness in pixels
+    textShadow: false, // New: Toggle for text shadow
+    shadowColor: '#000000', // New: Shadow color
+    shadowBlur: 5, // New: Shadow blur radius
+    shadowOffsetX: 2, // New: Shadow horizontal offset
+    shadowOffsetY: 2, // New: Shadow vertical offset
     });
   };
 
